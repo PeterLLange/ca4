@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp" ng-controller="myCtrl">
     <head>
         <title>Start Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css.css" rel="stylesheet" type="text/css"/>
+  
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div class="navigation">
+            <ul>
+                <li><a>Hjem</a></li>
+                <li><a>Info</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <p>Container</p>
+            <label for="1"><select id="1"></select></label>
+            <label for="2"><select id="2"></select></label>
+            <label for="3"><input type="date" id="3"></label>
+            <label for="4"><input type="date" id="4"></label>
+            <button id="myButton">Vælg</button> 
+        </div>
+        <div class="footer">
+            <p>Footer</p>
+            <p>Kontakt info yada yada</p>
+        </div>
     </body>
 </html>
