@@ -34,14 +34,14 @@ li a:hover:not(.active) {
 body{
     background: url(travel-022.jpg);
     background-size: 100%;
-    
+
 }
 .container{
     margin: 20px;
-    padding: 100px;
-    background-color: rgba(110, 171, 225, 0.9);
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
-    
+
 }
 .container p{
     color: black;
@@ -54,3 +54,21 @@ body{
     padding: 20px;
     border-radius: 10px;
 }
+
+label {
+    width:10%;
+    font-weight:bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+input, select {
+    border: 1px solid #999;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+button{
+    border-radius: 3px;
+}
+

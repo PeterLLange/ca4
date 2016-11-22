@@ -7,6 +7,7 @@ app.controller("myCtrl", function($scope, $http){
   $http.get('http://airline-plaul.rhcloud.com/api/flightinfo/SXF/2017-01-03T00:00:00.000Z/2').
         then(function(response) {
             $scope.data = response.data;
+            $scope.flight = $scope.data.flights;
         });
 });
 
