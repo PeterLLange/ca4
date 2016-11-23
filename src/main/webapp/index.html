@@ -56,7 +56,7 @@
                     </tr>
                 </thead>
                 <tbody >
-                    <tr ng-repeat="f in flight">
+                    <tr ng-repeat="f in data.flights">
                         <td>{{data.airline}}</td>
                         <td>{{f.flightID}}</td>
                         <td>{{f.numberOfSeats}}</td>
@@ -69,12 +69,6 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-        <div class="footer">
-            <p>Footer</p>
-            <p>{{data.airline}}</p>
-
-
         </div>
     </body>
 </html>
