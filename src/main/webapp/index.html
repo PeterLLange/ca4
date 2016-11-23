@@ -11,6 +11,7 @@
             .table, .th, .td{
                 border: 1px solid #999;
                 box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+               
 
             }
             .table {
@@ -23,6 +24,7 @@
             .th, .td {
                 padding: 15px;
             }
+            
         </style>
     </head>
     <body>
@@ -35,12 +37,16 @@
 
         <div class="container">
             <p>Container</p>
-            <label for="1">Afrejse: <select id="1"></select></label>
+            <label for="1">Afrejse: <select id="1" ng-model="airport" required>
+                    <option></option>
+                    <option value="CPH">Copenhagen</option>
+                    <option value="BLOB"> blubib</option>
+                </select></label>
             <label for="2">Destination: <select id="2"></select></label>
-            <label for="3">Afgang: <input type="date" id="3"></label>
-            <label for="4">Hjemkomst: <input type="date" id="4"></label>
-            <button id="myButton">Vælg</button> 
-
+            <label for="3">Antal sæder: <input type="number" id="3" ng-model="numSeats" required> </label>
+            <label for="4">Afrejse: <input type="date" id="4"  ng-model="date "  required></label>
+            <button id="myButton" ng-click="details()">Vælg</button> 
+            <div>{{numSeats}}</div>
             <table class="table">
                 <thead>
                     <tr>
@@ -60,7 +66,7 @@
                         <td>{{data.airline}}</td>
                         <td>{{f.flightID}}</td>
                         <td>{{f.numberOfSeats}}</td>
-                        <td>{{f.date}}</td>
+                        <td>{{f.date | date}}</td>
                         <td>{{f.totalPrice}}</td>
                         <td>{{f.traveltime}}</td>
                         <td>{{f.origin}}</td>

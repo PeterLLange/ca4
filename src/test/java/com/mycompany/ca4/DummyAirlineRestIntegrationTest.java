@@ -35,15 +35,17 @@ public class DummyAirlineRestIntegrationTest {
        
     }
     
-//    @Test
-//    public void getFlightWithFromDateTickets()
-//    {
-//        expect().
-//                body("get(0).flightID", equalTo("2215-1483448400000")).
-//                when().
-//                get("/date/2017-01-03T08:00:00.000Z/tickets/2");
-//        
-//    }
+    @Test
+    public void getFlightWithFromDateTickets()
+    {
+        expect().
+                body("get(0).flightID", equalTo("2215-1483448400000")).
+                when().
+                get("/date/2017-01-03T08:00:00.000Z/tickets/2");
+        
+        
+        
+    }
 
 //    @Test
 //    public void getFlightWithFromDateTickets2()
@@ -61,15 +63,15 @@ public class DummyAirlineRestIntegrationTest {
 //      Collection<Passenger> passengers;
 //    } 
     
-    @Test
-    public void statusCode404()
-    {
-        given().when().get("/date/{date}/tickets/{tickets}\",2080-01-03,2").then().statusCode(404);
-    }
-    
-    @Test
-    public void statusCode200()
-    {
-        given().when().get("/date/{date}/tickets/{tickets}\",2080-01-03,2").then().statusCode(404);
-    }
+//    @Test
+//    public void statusCode404()
+//    {
+//        given().when().get("/date/{date}/tickets/{tickets}\",2080-01-03,2").then().statusCode(404);
+//    }
+//    
+//    @Test
+//    public void statusCode200()
+//    {
+//        given().when().get("/date/{date}/tickets/{tickets}\",2080-01-03,2").then().statusCode(404);
+//    }
 }
