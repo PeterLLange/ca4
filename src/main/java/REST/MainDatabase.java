@@ -13,7 +13,7 @@ public class MainDatabase
       try {
           new All().GetAirline("CPH", "2017-01-03T00:00:00.000Z", "1");
       } catch (Exception ex) {
-          Logger.getLogger(rest.All.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(REST.All.class.getName()).log(Level.SEVERE, null, ex);
       }
     }
 }

@@ -23,8 +23,8 @@ public class ApplicationConfig extends Application
 
     private void addRestResourceClasses(Set<Class<?>> resources)
     {
+        resources.add(REST.All.class);
         resources.add(REST.RESTFlight.class);
-        resources.add(rest.All.class);
     }
     
 }

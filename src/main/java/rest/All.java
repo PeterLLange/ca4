@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rest;
+package REST;
 
 import com.google.gson.Gson;
 import httpcall.httpcall;
@@ -19,6 +19,8 @@ import javax.ws.rs.core.UriInfo;
  *
  * @author plaul1
  */
+@Path("all")
+
 public class All {
 
   @Context
@@ -30,11 +32,6 @@ public class All {
   public All() {
   }
 
-  /**
-   * Retrieves representation of an instance of rest.All
-   * @return an instance of java.lang.String
-   */
-
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public String getText() {
@@ -43,7 +40,7 @@ public class All {
 
   
     @GET
-    @Path("Getairplane/{from}/{date}/{tickets}")
+    @Path("getairplane/{from}/{date}/{tickets}")
     @Produces(MediaType.APPLICATION_JSON)
     public String GetAirline(String from,String date,String tickets) throws Exception
     {
