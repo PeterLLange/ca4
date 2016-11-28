@@ -19,7 +19,6 @@ import javax.ws.rs.core.UriInfo;
  *
  * @author plaul1
  */
-@Path("demoall")
 public class All {
 
   @Context
