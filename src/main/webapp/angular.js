@@ -36,13 +36,14 @@ app.controller("myCtrl", function ($scope, $http) {
         });
     };
 
-
+    $scope.toggle = function(){
+        $scope.myTable = !$scope.myTable;
+    };
 
 });
 
 app.filter('priceFilter', function () {
-    return function () {
-
+    return function (f) {
+        
     };
 });
-

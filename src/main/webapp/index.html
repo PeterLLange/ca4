@@ -36,7 +36,6 @@
         </div>
 
         <div class="container">
-            <p>Container</p>
             <label for="1">Afrejse: <select id="1" ng-model="airport" required>
                     <option></option>
                     <option value="CPH">Copenhagen</option>
@@ -55,12 +54,13 @@
                     <option value="BCN">Barcelona</option>
                     <option value="JFK">New York</option>
                 </select></label>
-            <div>{{(angular.isUndefined(destination)? 1 : destination.toString())}}</div>
-            <div>{{(destination == "" ? 1 : 2)}}</div>
             <label for="3">Antal sæder: <input type="number" id="3" ng-model="numSeats" required> </label>
-            <label for="4">Afrejse: <input type="date" id="4"  ng-model="date"  required></label>
-            <button id="myButton" ng-click="details()">Vælg</button> 
-            <table class="table">
+            <label for="4">Afrejse: <input type="date" id="4" min="2017-01-01" ng-model="date"  required></label>
+            <button id="myButton" ng-click="details(); toggle()">Vælg</button> 
+            
+        </div>
+        <div class="fTable" ng-show="myTable">
+        <table class="table">
                 <thead>
                     <tr>
                         <th>Airline</th>
@@ -88,6 +88,6 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
+            </div>
     </body>
 </html>
