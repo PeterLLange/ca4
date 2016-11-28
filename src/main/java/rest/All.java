@@ -6,12 +6,8 @@
 package rest;
 
 import com.google.gson.Gson;
-import com.mycompany.ca4.Airline;
 import httpcall.httpcall;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
@@ -54,13 +50,7 @@ public class All {
     {
         return new Gson().toJson(httpcall.GetAirport("api/flightinfo/"+from+"/"+date+"/"+tickets));
     }
-    public static void main(String[] args) {
-      try {
-          new All().GetAirline("CPH", "2017-01-03T00:00:00.000Z", "1");
-      } catch (Exception ex) {
-          Logger.getLogger(All.class.getName()).log(Level.SEVERE, null, ex);
-      }
-    }
+
     
     
 }
