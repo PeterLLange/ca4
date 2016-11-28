@@ -7,8 +7,10 @@ package REST;
 
 import com.google.gson.Gson;
 import httpcall.httpcall;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -17,20 +19,22 @@ import javax.ws.rs.core.UriInfo;
 /**
  * REST Web Service
  *
- * @author plaul1
+ * @author LouiseB
  */
-@Path("all")
+@Path("allFlights")
+public class AllFlights
+{
 
-public class All {
+    @Context
+    private UriInfo context;
 
-  @Context
-  private UriInfo context;
+    /**
+     * Creates a new instance of AllFlights
+     */
+    public AllFlights()
+    {
+    }
 
-  /**
-   * Creates a new instance of A
-   */
-  public All() {
-  }
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
@@ -41,12 +45,17 @@ public class All {
   
     @GET
     @Path("getairplane/{from}/{date}/{tickets}")
+    @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    public String GetAirline(String from,String date,String tickets) throws Exception
+    public String GetAirline(@PathParam("from")String from, @PathParam("date") String date, @PathParam("tickets")String tickets)
     {
-        return new Gson().toJson(httpcall.GetAirport("api/flightinfo/"+from+"/"+date+"/"+tickets));
+        try
+        {
+            return new Gson().toJson(httpcall.GetAirport("api/flightinfo/"+from+"/"+date+"/"+tickets));
+        } catch (Exception ex)
+        {
+            System.out.println(ex.toString());
+        }
+        return null;
     }
-
-    
-    
 }

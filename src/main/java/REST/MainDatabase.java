@@ -11,9 +11,9 @@ public class MainDatabase
 //        
 //        f.getAllFlights();
       try {
-          new All().GetAirline("CPH", "2017-01-03T00:00:00.000Z", "1");
+          new AllFlights().GetAirline("CPH", "2017-01-03T00:00:00.000Z", "1");
       } catch (Exception ex) {
-          Logger.getLogger(REST.All.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(REST.AllFlights.class.getName()).log(Level.SEVERE, null, ex);
       }
     }
 }
