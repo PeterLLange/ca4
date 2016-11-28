@@ -12,6 +12,7 @@
                 border: 1px solid #999;
                 box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 
+
             }
             .table {
                 border-collapse: collapse;
@@ -23,6 +24,7 @@
             .th, .td {
                 padding: 15px;
             }
+
         </style>
     </head>
     <body>
@@ -35,12 +37,29 @@
 
         <div class="container">
             <p>Container</p>
-            <label for="1">Afrejse: <select id="1"></select></label>
-            <label for="2">Destination: <select id="2"></select></label>
-            <label for="3">Afgang: <input type="date" id="3"></label>
-            <label for="4">Hjemkomst: <input type="date" id="4"></label>
-            <button id="myButton">Vælg</button> 
-
+            <label for="1">Afrejse: <select id="1" ng-model="airport" required>
+                    <option></option>
+                    <option value="CPH">Copenhagen</option>
+                    <option value="SXF">Berlin</option>
+                    <option value="STN">London</option>
+                    <option value="CDG">Paris</option>
+                    <option value="BCN" selected>Barcelona</option>
+                    <option value="JFK">New York</option>
+                </select></label>
+            <label for="2">Destination: <select id="2" ng-model="destination">
+                    <option ></option>
+                    <option value="CPH">Copenhagen</option>
+                    <option value="SXF">Berlin</option>
+                    <option value="STN">London</option>
+                    <option value="CDG">Paris</option>
+                    <option value="BCN">Barcelona</option>
+                    <option value="JFK">New York</option>
+                </select></label>
+            <div>{{(angular.isUndefined(destination)? 1 : destination.toString())}}</div>
+            <div>{{(destination == "" ? 1 : 2)}}</div>
+            <label for="3">Antal sæder: <input type="number" id="3" ng-model="numSeats" required> </label>
+            <label for="4">Afrejse: <input type="date" id="4"  ng-model="date"  required></label>
+            <button id="myButton" ng-click="details()">Vælg</button> 
             <table class="table">
                 <thead>
                     <tr>
@@ -60,7 +79,7 @@
                         <td>{{data.airline}}</td>
                         <td>{{f.flightID}}</td>
                         <td>{{f.numberOfSeats}}</td>
-                        <td>{{f.date}}</td>
+                        <td>{{f.date| date}}</td>
                         <td>{{f.totalPrice}}</td>
                         <td>{{f.traveltime}}</td>
                         <td>{{f.origin}}</td>
