@@ -6,7 +6,7 @@
 package httpcall;
 
 import com.google.gson.Gson;
-import com.mycompany.ca4.Airline;
+import Entity.Airline;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;

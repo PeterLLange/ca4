@@ -5,7 +5,7 @@
  */
 package REST;
 
-import com.mycompany.ca4.Flight;
+import Entity.Flight;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

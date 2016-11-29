@@ -1,3 +1,5 @@
+package Test;
+
 ///*
 // * To change this license header, choose License Headers in Project Properties.
 // * To change this template file, choose Tools | Templates
@@ -39,28 +41,28 @@
 //    }
 //
 //    /**
-//     * Test of getArilineID method, of class Airline.
+//     * Test of getAirlineID method, of class Airline.
 //     */
 //    @Test
-//    public void testGetArilineID() {
-//        System.out.println("getArilineID");
+//    public void testGetAirlineID() {
+//        System.out.println("getAirlineID");
 //        Airline instance = new Airline();
 //        Integer expResult = null;
-//        Integer result = instance.getArilineID();
+//        Integer result = instance.getAirlineID();
 //        assertEquals(expResult, result);
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
 //    }
 //
 //    /**
-//     * Test of setArilineID method, of class Airline.
+//     * Test of setAirlineID method, of class Airline.
 //     */
 //    @Test
-//    public void testSetArilineID() {
-//        System.out.println("setArilineID");
-//        Integer arilineID = null;
+//    public void testSetAirlineID() {
+//        System.out.println("setAirlineID");
+//        Integer AirlineID = null;
 //        Airline instance = new Airline();
-//        instance.setArilineID(arilineID);
+//        instance.setAirlineID(AirlineID);
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
 //    }
