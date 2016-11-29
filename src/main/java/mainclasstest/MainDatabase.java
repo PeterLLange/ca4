@@ -1,5 +1,5 @@
 
-package Database;
+package mainclasstest;
 import REST.AllFlights;
 import java.util.logging.Level;
 import java.util.logging.Logger;
