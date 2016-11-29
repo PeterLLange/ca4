@@ -1,11 +1,15 @@
+package REST;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package REST;
+
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import httpcall.httpcall;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -51,7 +55,14 @@ public class AllFlights
     {
         try
         {
-            return new Gson().toJson(httpcall.GetAirport("api/flightinfo/"+from+"/"+date+"/"+tickets));
+            String temp = httpcall.GetAirport("api/flightinfo/"+from+"/"+date+"/"+tickets);
+            System.out.println(temp);
+            JsonElement tempjson;
+            tempjson = new JsonParser().parse(temp);
+            String newtemp = new Gson().toJson(tempjson);
+             
+            System.out.println(newtemp);
+            return newtemp;
         } catch (Exception ex)
         {
             System.out.println(ex.toString());
