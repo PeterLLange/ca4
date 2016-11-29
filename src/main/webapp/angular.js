@@ -25,7 +25,7 @@ app.controller("myCtrl", function ($scope, $http) {
         var dest = (angular.isUndefined($scope.destination) ? "" : 
                 ($scope.destination == "" ? "":
                 "/" + $scope.destination));
-        var url = 'http://localhost:8080/ca4/api/allFlights/getairplane/' + $scope.airport + dest + "/" + stringy + "/" + $scope.numSeats;
+        var url = 'http://localhost:8080/Semesterprojekt/api/allFlights/getairplane/' + $scope.airport + dest + "/" + stringy + "/" + $scope.numSeats;
         console.log(url);
         $http.get(url).
                 success(function (response) {
