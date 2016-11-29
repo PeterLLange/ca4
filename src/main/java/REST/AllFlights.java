@@ -51,7 +51,7 @@ public class AllFlights
     @Path("getairplane/{from}/{date}/{tickets}")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    public String GetAirline(@PathParam("from")String from, @PathParam("date") String date, @PathParam("tickets")String tickets)
+    public String getAirline(@PathParam("from")String from, @PathParam("date") String date, @PathParam("tickets")String tickets)
     {
         try
         {
@@ -69,4 +69,28 @@ public class AllFlights
         }
         return null;
     }
+    
+    @GET
+    @Path("getairplane/{from}/{to}/{date}/{tickets}")
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getAirlineWithDestination(@PathParam("from")String from, @PathParam("to") String to, @PathParam("date") String date, @PathParam("tickets")String tickets)
+    {
+        try
+        {
+            String temp = httpcall.GetAirport("api/flightinfo/" + from +"/" + to + "/" + date + "/" +tickets);
+            System.out.println(temp);
+            JsonElement tempjson;
+            tempjson = new JsonParser().parse(temp);
+            String newtemp = new Gson().toJson(tempjson);
+             
+            System.out.println(newtemp);
+            return newtemp;
+        } catch (Exception ex)
+        {
+            System.out.println(ex.toString());
+        }
+        return null;
+    }
+    
 }
