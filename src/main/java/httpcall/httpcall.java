@@ -5,13 +5,13 @@
  */
 package httpcall;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import javax.net.ssl.HttpsURLConnection;
 
 /**
@@ -19,39 +19,62 @@ import javax.net.ssl.HttpsURLConnection;
  * @author Emil
  */
 public class httpcall {
+
     private static final String USER_AGENT = "Mozilla/5.0";
+
+    private static ArrayList<String> urls = null;
+
+    public httpcall() {
+        urls = new ArrayList<>();
+        urls.add("http://airline-plaul.rhcloud.com/");
+        urls.add("http://46.101.239.114/DummyAirlinenew-1.0");
+    }
 
     // HTTP GET request
     public static String GetAirport(String paremeter) throws Exception {
         // api/flightinfo/CPH/2017-01-03T00:00:00.000Z/1
-        String url = "http://airline-plaul.rhcloud.com/"+paremeter;
-
-        URL obj = new URL(url);
-        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-
-        // optional default is GET
-        con.setRequestMethod("GET");
-
-        //add request header
-        con.setRequestProperty("User-Agent", USER_AGENT);
-
-        int responseCode = con.getResponseCode();
-        System.out.println("\nSending 'GET' request to URL : " + url);
-        System.out.println("Response Code : " + responseCode);
-
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream()));
-        String inputLine;
-        StringBuffer response = new StringBuffer();
-
-        while ((inputLine = in.readLine()) != null) {
-            response.append(inputLine);
+        if (urls == null) {
+            new httpcall();
         }
-        in.close();
+        StringBuffer response = new StringBuffer();
+        response.append('[');
+        for (String url : urls) {
+            try {
+                
+            
 
-        //print result
-        System.out.println(response.toString());
-        
+            URL obj = new URL(url);
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+            // optional default is GET
+            con.setRequestMethod("GET");
+
+            //add request header
+            con.setRequestProperty("User-Agent", USER_AGENT);
+
+            int responseCode = con.getResponseCode();
+            System.out.println("\nSending 'GET' request to URL : " + url);
+            System.out.println("Response Code : " + responseCode);
+
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(con.getInputStream()));
+            String inputLine;
+            
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            response.append(',');
+            in.close();
+
+            //print result
+            System.out.println(response.toString());
+            } catch (Exception e) {
+                
+            }
+            
+        }
+        response.append(']');
         return response.toString();
     }
     // HTTP GET request
@@ -90,7 +113,7 @@ public class httpcall {
 
     private static String sendPost(String paremeter, JsonObject flight) throws Exception {
 
-        String url = "http://airline-plaul.rhcloud.com/"+paremeter;
+        String url = "http://airline-plaul.rhcloud.com/" + paremeter;
         URL obj = new URL(url);
         HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
 
