@@ -22,18 +22,18 @@ public class DummyAirlineRestIntegrationTest
 
     }
 
-//    @Test
-//    public void webpageIsRunning()
-//    {
-//        given().when().get("http://localhost:8080/Semesterprojekt").then().statusCode(200);
-//    }
-//
-//    @Test
-//    public void webpageIsNotRunning()
-//    {
-//        given().when().get("http://localhost:8080/SemesterprojektFail").then().statusCode(404);
-//
-//    }
+    @Test
+    public void webpageIsRunning()
+    {
+        given().when().get("http://localhost:8080/Semesterprojekt").then().statusCode(200);
+    }
+
+    @Test
+    public void webpageIsNotRunning()
+    {
+        given().when().get("http://localhost:8080/SemesterprojektFail").then().statusCode(404);
+
+    }
 
     @Test
     public void webpageIsRunning2()
