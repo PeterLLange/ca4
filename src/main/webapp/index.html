@@ -5,14 +5,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
         <script src="https://code.angularjs.org/1.5.8/i18n/angular-locale_da.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="angular.js"></script>
         <link href="css.css" rel="stylesheet" type="text/css"/>
         <style>
             .table, .th, .td{
                 border: 1px solid #999;
                 box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-
-
             }
             .table {
                 border-collapse: collapse;
@@ -25,6 +24,9 @@
                 padding: 15px;
             }
 
+            tr:nth-child(even) {background: #FFF}
+            tr:nth-child(odd) {background: #999;} 
+
         </style>
     </head>
     <body>
@@ -36,7 +38,8 @@
         </div>
 
         <div class="container">
-            <label for="1">Afrejse: <select id="1" ng-model="airport" required>
+            <label for="1"><i class="material-icons">flight_takeoff</i><select id="1" ng-model="airport" required>
+                   
                     <option></option>
                     <option value="CPH">Copenhagen</option>
                     <option value="SXF">Berlin</option>
@@ -45,7 +48,7 @@
                     <option value="BCN" selected>Barcelona</option>
                     <option value="JFK">New York</option>
                 </select></label>
-            <label for="2">Destination: <select id="2" ng-model="destination">
+            <label for="2"><i class="material-icons">flight_land</i> <select id="2" ng-model="destination">
                     <option ></option>
                     <option value="CPH">Copenhagen</option>
                     <option value="SXF">Berlin</option>
@@ -54,38 +57,38 @@
                     <option value="BCN">Barcelona</option>
                     <option value="JFK">New York</option>
                 </select></label>
-            <label for="3">Antal sæder: <input type="number" id="3" ng-model="numSeats" required> </label>
+            <label for="3"><i class="material-icons">person</i> <input type="number" id="3" ng-model="numSeats" required> </label>
             <label for="4">Afrejse: <input type="date" id="4" min="2017-01-01" ng-model="date"  required></label>
             <button id="myButton" ng-click="details()">Vælg</button> 
-            
+
         </div>
         <table class="table">
-                <thead>
-                    <tr>
-                        <th>Airline</th>
-                        <th>Flight ID</th>
-                        <th>Number of seats</th>
-                        <th>Date</th>
-                        <th>Total price</th>
-                        <th>Travel time</th>
-                        <th>Origin</th>
-                        <th>Destination</th>
-                        <th>Flight Number</th>
-                    </tr>
-                </thead>
-                <tbody >
-                    <tr ng-repeat="f in data.flights">
-                        <td>{{data.airline}}</td>
-                        <td>{{f.flightID}}</td>
-                        <td>{{f.numberOfSeats}}</td>
-                        <td>{{f.date| date}}</td>
-                        <td>{{f.totalPrice}}</td>
-                        <td>{{f.traveltime}}</td>
-                        <td>{{f.origin}}</td>
-                        <td>{{f.destination}}</td>
-                        <td>{{f.flightNumber}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <thead>
+                <tr>
+                    <th>Airline</th>
+                    <th>Flight ID</th>
+                    <th>Number of seats</th>
+                    <th>Date</th>
+                    <th>Total price</th>
+                    <th>Travel time</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Flight Number</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr ng-repeat="f in data.flights">
+                    <td>{{data.airline}}</td>
+                    <td>{{f.flightID}}</td>
+                    <td>{{f.numberOfSeats}}</td>
+                    <td>{{f.date| date}}</td>
+                    <td>{{f.totalPrice}}</td>
+                    <td>{{f.traveltime}}</td>
+                    <td>{{f.origin}}</td>
+                    <td>{{f.destination}}</td>
+                    <td>{{f.flightNumber}}</td>
+                </tr>
+            </tbody>
+        </table>
     </body>
 </html>
