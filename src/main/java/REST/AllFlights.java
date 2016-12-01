@@ -55,6 +55,7 @@ public class AllFlights
     @Produces(MediaType.APPLICATION_JSON)
     public String getAirline(@PathParam("from")String from, @PathParam("date") String date, @PathParam("tickets")String tickets) throws RuntimeException, NotFoundException, FlightException
     {
+        System.out.println("Breakpoint");
         try
         {
             String temp = httpcall.GetAirport("api/flightinfo/"+from+"/"+date+"/"+tickets);
