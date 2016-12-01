@@ -56,10 +56,9 @@
                 </select></label>
             <label for="3">Antal sæder: <input type="number" id="3" ng-model="numSeats" required> </label>
             <label for="4">Afrejse: <input type="date" id="4" min="2017-01-01" ng-model="date"  required></label>
-            <button id="myButton" ng-click="details(); myTable = !myTable">Vælg</button> 
+            <button id="myButton" ng-click="details()">Vælg</button> 
             
         </div>
-        <div class="fTable" ng-show="myTable">
         <table class="table">
                 <thead>
                     <tr>
@@ -88,6 +87,5 @@
                     </tr>
                 </tbody>
             </table>
-            </div>
     </body>
 </html>
