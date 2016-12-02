@@ -1,74 +1,23 @@
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgba(85, 150, 206, 0.9);
-    border-radius: 10px;
-}
 
-li {
-    float: left;
-    border-right:1px solid #bbb;
+.jumbotron{
+    background-color: #424e66;  
+    color: #FFF; 
+    padding:10px 0 10px 0;
+     text-align:center;
 }
-
-li:last-child {
-    border-right: none;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover:not(.active) {
-    background-color: rgb(110, 171, 225);
-}
-
-.active {
-    background-color: rgb(110, 171, 225);
-}
-body{
-    background: url(travel-022.jpg);
-    background-size: 100%;
-
-}
-.container{
-    margin: 20px;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-
-}
-.container p{
-    color: black;
-    margin: 5%;
-}
-
-.footer{
-    background-color: rgba(110, 171, 225, 0.9);
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-label {
-    width:10%;
-    font-weight:bold;
-    margin-top: 5px;
-    margin-bottom: 5px;
-
-}
-
-input, select {
-    border: 1px solid #999;
+input.active{
+    
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 }
 
-button{
-    border-radius: 3px;
-}
+i{
+    margin-left: 15px;
+    margin-right: 5px;
 
+}
+select, input{
+    color: black;
+}
+body{
+    background-color: #424e66;
+}

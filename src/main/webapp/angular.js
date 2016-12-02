@@ -17,14 +17,14 @@ app.controller("myCtrl", function ($scope, $http) {
         var stringy = (daty.getDate() == 1 ? daty.getUTCFullYear() + 1 : daty.getFullYear()) + "-" +
                 ((daty.getDate() == 1 ? daty.getUTCMonth() + 2 : daty.getUTCMonth() + 1) < 10 ?
                         "0" + (daty.getDate() == 1 ? daty.getUTCMonth() + 2 : daty.getUTCMonth() + 1) :
-                        ((daty.getDate() == 1 ? daty.getUTCMonth() + 2 : daty.getUTCMonth() + 1)) == 13 ? 1 : 
+                        ((daty.getDate() == 1 ? daty.getUTCMonth() + 2 : daty.getUTCMonth() + 1)) == 13 ? 1 :
                         (daty.getDate() == 1 ? daty.getUTCMonth() + 2 : daty.getUTCMonth() + 1))
                 + "-" + (daty.getDate() < 10 ? "0" + daty.getDate() : daty.getDate()) + "T" + "00" + ":" + "00" + ":" + "00.000" + "Z";
         console.log("Stringy: " + stringy);
         console.log("Airport: " + $scope.airport);
-        var dest = (angular.isUndefined($scope.destination) ? "" : 
-                ($scope.destination == "" ? "":
-                "/" + $scope.destination));
+        var dest = (angular.isUndefined($scope.destination) ? "" :
+                ($scope.destination == "" ? "" :
+                        "/" + $scope.destination));
         var url = 'http://localhost:8080/Semesterprojekt/api/allFlights/getairplane/' + $scope.airport + dest + "/" + stringy + "/" + $scope.numSeats;
         console.log(url);
         $http.get(url).
@@ -35,15 +35,18 @@ app.controller("myCtrl", function ($scope, $http) {
             alert(response.message);
         });
     };
-
-    $scope.toggle = function(){
-        $scope.myTable = !$scope.myTable;
+    $scope.myTable = false;
+    $scope.toggle = function () {
+        if ($scope.myTable === false && $scope.myForm.$valid)
+        {
+            $scope.myTable = !$scope.myTable;
+        }
     };
 
 });
 
 app.filter('priceFilter', function () {
     return function (f) {
-        
+
     };
 });

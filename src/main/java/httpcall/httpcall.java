@@ -29,7 +29,7 @@ public class httpcall {
     public httpcall() {
         urls = new ArrayList<>();
         urls.add("http://airline-plaul.rhcloud.com/");
-        urls.add("http://46.101.239.114/DummyAirlinenew-1.0/");
+        //urls.add("http://46.101.239.114/DummyAirlinenew-1.0/");
     }
 
     // HTTP GET request
@@ -39,7 +39,6 @@ public class httpcall {
             new httpcall();
         }
         StringBuffer response = new StringBuffer();
-        response.append('[');
         for (String url : urls) {
             try {
                 
@@ -55,7 +54,7 @@ public class httpcall {
             con.setRequestProperty("User-Agent", USER_AGENT);
 
             int responseCode = con.getResponseCode();
-            System.out.println("\nSending 'GET' request to URL : " + url+paremeter);
+            System.out.println("\nSending 'GET' request to URL : " + url +paremeter);
             System.out.println("Response Code : " + responseCode);
 
             BufferedReader in = new BufferedReader(
@@ -66,7 +65,6 @@ public class httpcall {
             while ((inputLine = in.readLine()) != null) {
                 response.append(inputLine);
             }
-            response.append(',');
             in.close();
 
             //print result
@@ -76,7 +74,6 @@ public class httpcall {
             }
             
         }
-        response.append(']');
         return response.toString();
     }
     // HTTP GET request

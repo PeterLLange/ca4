@@ -26,6 +26,9 @@ public class ApplicationConfig extends Application
     private void addRestResourceClasses(Set<Class<?>> resources)
     {
         resources.add(REST.AllFlights.class);
+        resources.add(RESTException.FlightExceptionMapper.class);
+        resources.add(RESTException.NotFoundExceptionMapper.class);
+        resources.add(RESTException.RuntimeExceptionMapper.class);
     }
     
 }
