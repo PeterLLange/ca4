@@ -19,7 +19,9 @@ import javax.net.ssl.HttpsURLConnection;
  * @author Emil
  */
 public class httpcall {
-
+    public static void main(String[] args) throws Exception {
+        GetAirport("api/flightinfo/CPH/2017-1-01T00:00:00.000Z/1");
+    }
     private static final String USER_AGENT = "Mozilla/5.0";
 
     private static ArrayList<String> urls = null;
@@ -43,7 +45,7 @@ public class httpcall {
                 
             
 
-            URL obj = new URL(url);
+            URL obj = new URL(url+paremeter);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
             // optional default is GET
@@ -53,7 +55,7 @@ public class httpcall {
             con.setRequestProperty("User-Agent", USER_AGENT);
 
             int responseCode = con.getResponseCode();
-            System.out.println("\nSending 'GET' request to URL : " + url);
+            System.out.println("\nSending 'GET' request to URL : " + url+paremeter);
             System.out.println("Response Code : " + responseCode);
 
             BufferedReader in = new BufferedReader(
@@ -70,7 +72,7 @@ public class httpcall {
             //print result
             System.out.println(response.toString());
             } catch (Exception e) {
-                
+                System.out.println(e);
             }
             
         }
