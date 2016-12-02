@@ -19,7 +19,9 @@ import javax.net.ssl.HttpsURLConnection;
  * @author Emil
  */
 public class httpcall {
-
+    public static void main(String[] args) throws Exception {
+        GetAirport("api/flightinfo/CPH/2017-1-01T00:00:00.000Z/1");
+    }
     private static final String USER_AGENT = "Mozilla/5.0";
 
     private static ArrayList<String> urls = null;
