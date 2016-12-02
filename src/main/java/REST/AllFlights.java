@@ -27,7 +27,7 @@ import javax.ws.rs.core.UriInfo;
  *
  * @author LouiseB
  */
-@Path("allFlights")
+@Path("flightinfo")
 public class AllFlights
 {
 
@@ -50,7 +50,7 @@ public class AllFlights
 
   
     @GET
-    @Path("getairplane/{from}/{date}/{tickets}")
+    @Path("{from}/{date}/{tickets}")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
     public String getAirline(@PathParam("from")String from, @PathParam("date") String date, @PathParam("tickets")String tickets) throws RuntimeException, NotFoundException, FlightException
@@ -78,7 +78,7 @@ public class AllFlights
     }
     
     @GET
-    @Path("getairplane/{from}/{to}/{date}/{tickets}")
+    @Path("{from}/{to}/{date}/{tickets}")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
     public String getAirlineWithDestination(@PathParam("from")String from, @PathParam("to") String to, @PathParam("date") String date, @PathParam("tickets")String tickets)
