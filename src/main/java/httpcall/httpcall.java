@@ -29,6 +29,7 @@ public class httpcall {
     public httpcall() {
         urls = new ArrayList<>();
         urls.add("http://airline-plaul.rhcloud.com/");
+        urls.add("http://helaconpeter.cloudapp.net:8080/FlightWar/");
         //urls.add("http://46.101.239.114/DummyAirlinenew-1.0/");
     }
 
