@@ -59,77 +59,79 @@
                 <li><a>Info</a></li>
             </ul>
         </div>
-            
+
         <div class="parallax1">
-        <div class="jumbotron">
-            <form class="form-inline" name="myForm">
-                <div class="form-group">
-                    <i class="material-icons">flight_takeoff</i><select id="1" ng-model="airport" required>
-                        <option></option>
-                        <option value="CPH">Copenhagen</option>
-                        <option value="SXF">Berlin</option>
-                        <option value="STN">London</option>
-                        <option value="CDG">Paris</option>
-                        <option value="BCN">Barcelona</option>
-                        <option value="JFK">New York</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <i class="material-icons">flight_land</i> <select id="2" ng-model="destination">
-                        <option ></option>
-                        <option value="CPH">Copenhagen</option>
-                        <option value="SXF">Berlin</option>
-                        <option value="STN">London</option>
-                        <option value="CDG">Paris</option>
-                        <option value="BCN">Barcelona</option>
-                        <option value="JFK">New York</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <i class="material-icons">person</i> <input type="number" id="3" ng-model="numSeats" placeholder="passagerer" required> 
-                </div>
-                <div class="form-group">
-                    <i class="material-icons">date_range</i> <input type="date" id="4" min="2017-01-01" ng-model="date"  required>
-                </div>
-                <div class="form-group">
-                    <button id="myButton" ng-click="details(); toggle()" class="btn btn-primary">Vælg</button> 
-                </div>
-            </form>
-        </div>
-     
-        <div class="container">
-            <table class="table" ng-show="myTable">
-                <thead style="background-color: #999">
-                    <tr>
-                        <th>Airline</th>
-                        <th>Flight ID</th>
-                        <th>Number of seats</th>
-                        <th>Date</th>
-                        <th>Total price</th>
-                        <th>Travel time</th>
-                        <th>Origin</th>
-                        <th>Destination</th>
-                        <th>Flight Number</th>
+            <div class="jumbotron">
+                <form class="form-inline" name="myForm">
+                    <div class="form-group">
+                        <i class="material-icons">flight_takeoff</i><select id="1" ng-model="airport" required>
+                            <option></option>
+                            <option value="CPH">Copenhagen</option>
+                            <option value="SXF">Berlin</option>
+                            <option value="STN">London</option>
+                            <option value="CDG">Paris</option>
+                            <option value="BCN">Barcelona</option>
+                            <option value="JFK">New York</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <i class="material-icons">flight_land</i> <select id="2" ng-model="destination">
+                            <option ></option>
+                            <option value="CPH">Copenhagen</option>
+                            <option value="SXF">Berlin</option>
+                            <option value="STN">London</option>
+                            <option value="CDG">Paris</option>
+                            <option value="BCN">Barcelona</option>
+                            <option value="JFK">New York</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <i class="material-icons">person</i> <input type="number" id="3" ng-model="numSeats" placeholder="passagerer" required> 
+                    </div>
+                    <div class="form-group">
+                        <i class="material-icons">date_range</i> <input type="date" id="4" min="2017-01-01" ng-model="date"  required>
+                    </div>
+                    <div class="form-group">
+                        <button id="myButton" ng-click="details(); toggle()" class="btn btn-primary">Vælg</button> 
+                    </div>
+                </form>
+            </div>
 
-                    </tr>
-                </thead>
-                <tbody >
-                    <tr ng-repeat="f in data.flights">
-                        <td>{{data.airline}}</td>
-                        <td>{{f.flightID}}</td>
-                        <td>{{f.numberOfSeats}}</td>
-                        <td>{{f.date| date}}</td>
-                        <td>{{f.totalPrice | currency}}</td>
-                        <td>{{f.traveltime}}</td>
-                        <td>{{f.origin}}</td>
-                        <td>{{f.destination}}</td>
-                        <td>{{f.flightNumber}}</td>
+            <div class="container">
+                <table class="table" ng-show="myTable">
+                    <thead style="background-color: #999">
+                        <tr>
+                            <th>Airline</th>
+                            <th>Flight ID</th>
+                            <th>Number of seats</th>
+                            <th>Date</th>
+                            <th>Total price</th>
+                            <th>Travel time</th>
+                            <th>Origin</th>
+                            <th>Destination</th>
+                            <th>Flight Number</th>
 
-                    </tr>
-                </tbody>
-            </table>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="d in Sdata.data">
+
+
+                        <tr ng-repeat="f in d.flights" >
+
+                            <td>{{d.airline}}</td>
+                            <td>{{f.flightID}}1</td>
+                            <td>{{f.numberOfSeats}}</td>
+                            <td>{{f.date| date : "medium"}}</td>
+                            <td>{{f.totalPrice| currency}}</td>
+                            <td>{{f.traveltime}}</td>
+                            <td>{{f.origin}}</td>
+                            <td>{{f.destination}}</td>
+                            <td>{{f.flightNumber}}</td>
+                        <tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-      </div>
-      
+
     </body>
 </html>

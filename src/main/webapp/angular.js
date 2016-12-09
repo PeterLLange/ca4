@@ -29,7 +29,12 @@ app.controller("myCtrl", function ($scope, $http) {
         console.log(url);
         $http.get(url).
                 success(function (response) {
-                    $scope.data = response;
+
+                    $scope.Sdata = response;
+                    $scope.bird = response.data;
+                    $scope.da = $scope.Sdata.data;
+                    console.log($scope.bird);
+                    console.log("wha" + response.data[0]);
                     console.log("Det gik godt");
                 }).error(function (response) {
             alert(response.message);

@@ -18,63 +18,82 @@ import javax.net.ssl.HttpsURLConnection;
  *
  * @author Emil
  */
-public class httpcall {
-    public static void main(String[] args) throws Exception {
+public class httpcall
+{
+
+    public static void main(String[] args) throws Exception
+    {
         GetAirport("api/flightinfo/CPH/2017-1-01T00:00:00.000Z/1");
     }
     private static final String USER_AGENT = "Mozilla/5.0";
 
     private static ArrayList<String> urls = null;
 
-    public httpcall() {
+    public httpcall()
+    {
         urls = new ArrayList<>();
         urls.add("http://airline-plaul.rhcloud.com/");
         urls.add("http://helaconpeter.cloudapp.net:8080/FlightWar/");
-        //urls.add("http://46.101.239.114/DummyAirlinenew-1.0/");
+        urls.add("http://46.101.239.114/DummyAirlinenew-1.0/");
     }
 
     // HTTP GET request
-    public static String GetAirport(String paremeter) throws Exception {
+    public static String GetAirport(String paremeter) throws Exception
+    {
         // api/flightinfo/CPH/2017-01-03T00:00:00.000Z/1
-        if (urls == null) {
+        if (urls == null)
+        {
             new httpcall();
         }
         StringBuffer response = new StringBuffer();
-        for (String url : urls) {
-            try {
+        response.append("{");
+        response.append('"');
+        response.append("data");
+        response.append('"');
+        response.append(":[");
+        for (String url : urls)
+        {
+            try
+            {
+
                 
-            
+                if (url != urls.get(0))
+                {
+                    response.append(",");
+                }
 
-            URL obj = new URL(url+paremeter);
-            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+                URL obj = new URL(url + paremeter);
+                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-            // optional default is GET
-            con.setRequestMethod("GET");
+                // optional default is GET
+                con.setRequestMethod("GET");
 
-            //add request header
-            con.setRequestProperty("User-Agent", USER_AGENT);
+                //add request header
+                con.setRequestProperty("User-Agent", USER_AGENT);
 
-            int responseCode = con.getResponseCode();
-            System.out.println("\nSending 'GET' request to URL : " + url +paremeter);
-            System.out.println("Response Code : " + responseCode);
+                int responseCode = con.getResponseCode();
+                System.out.println("\nSending 'GET' request to URL : " + url + paremeter);
+                System.out.println("Response Code : " + responseCode);
 
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(con.getInputStream()));
-            String inputLine;
-            
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(con.getInputStream()));
+                String inputLine;
 
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
-            }
-            in.close();
+                while ((inputLine = in.readLine()) != null)
+                {
+                    response.append(inputLine);
+                }
+                in.close();
 
-            //print result
-            System.out.println(response.toString());
-            } catch (Exception e) {
+                //print result
+                System.out.println(response.toString());
+            } catch (Exception e)
+            {
                 System.out.println(e);
             }
-            
+
         }
+        response.append("]}");
         return response.toString();
     }
     // HTTP GET request
@@ -111,7 +130,8 @@ public class httpcall {
 //    }
     // HTTP POST request
 
-    private static String sendPost(String paremeter, JsonObject flight) throws Exception {
+    private static String sendPost(String paremeter, JsonObject flight) throws Exception
+    {
 
         String url = "http://airline-plaul.rhcloud.com/" + paremeter;
         URL obj = new URL(url);
@@ -139,7 +159,8 @@ public class httpcall {
         String inputLine;
         StringBuffer response = new StringBuffer();
 
-        while ((inputLine = in.readLine()) != null) {
+        while ((inputLine = in.readLine()) != null)
+        {
             response.append(inputLine);
         }
         in.close();
