@@ -40,6 +40,7 @@ app.controller("myCtrl", function ($scope, $http) {
             alert(response.message);
         });
     };
+
     $scope.myTable = false;
     $scope.toggle = function () {
         if ($scope.myTable === false && $scope.myForm.$valid)
